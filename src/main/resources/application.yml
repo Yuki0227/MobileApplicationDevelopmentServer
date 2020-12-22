@@ -1,0 +1,15 @@
+
+#spring:
+#  datasource:
+#    url: jdbc:mysql://db.yynb.live:33066/mhk?&useSSL=false&serverTimezone=UTC
+#    username: mhk
+#    password: 001008
+#    driver-class-name: com.mysql.jdbc.Driver
+#    jpa:
+#      show-sql: true
+#      properties:
+#        hibernate:
+#          format_sql: true
+server:
+  port: 8081
+
