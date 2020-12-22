@@ -1,5 +1,7 @@
 
 spring:
+  application:
+    name: android-web
   datasource:
     url: jdbc:mysql://db.yynb.live:33066/mhk?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: ltl
