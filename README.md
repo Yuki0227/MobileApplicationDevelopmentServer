@@ -1,4 +1,4 @@
 # 移动应用开发课程大作业的后端
 
-![CI](https://github.com/Yuki0227/android-web/tree/master/.github/workflows/CI.yml/badge.svg)
+![CI](https://github.com/Yuki0227/android-web/workflows/Java%20CI%20with%20Maven/badge.svg)
 
