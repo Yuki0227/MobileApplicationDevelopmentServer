@@ -1,4 +1,4 @@
 # 移动应用开发课程大作业的后端
 
-![Docker Build And Push To Aliyun Hub](https://github.com/Yuki0227/android-web/workflows/Docker%20Build%20And%20Push%20To%20Aliyun%20Hub/badge.svg)
+![持续部署](https://github.com/Yuki0227/android-web/workflows/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/badge.svg)
 
