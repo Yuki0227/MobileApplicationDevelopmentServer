@@ -21,7 +21,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/findByName")
+    @PostMapping("/findByName")
     public User findByName(@RequestParam(name = "name") String name){
         return  userRepository.findByName(name);
     }
@@ -31,7 +31,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @GetMapping("/deleteById")
+    @PostMapping("/deleteById")
     public void deleteById(@RequestParam(name = "id") Integer id){
         userRepository.deleteById(id);
     }
