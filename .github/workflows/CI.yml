@@ -31,5 +31,26 @@ jobs:
           registry: registry.cn-beijing.aliyuncs.com # 阿里巴巴的 Docker Hub
           dockerfile: Dockerfile # 指定 Dockerfile 的位置
           tag_names: true # 是否将 release 的 tag 作为 docker image 的 tag
-
-
+  
+  pull-docker:
+    needs: [build]
+    name: Pull Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 8.131.250.250
+          username: root
+          password: Ma001008
+          port: 22
+          script: |
+            docker stop $(docker ps --filter ancestor=registry-vpc.cn-beijing.aliyuncs.com/android-web/springboot:latest -q)
+            docker stop $(docker ps --filter ancestor=${{ secrets.REGISTRY }} -q)
+            docker rm -f $(docker ps -a --filter ancestor=${{ secrets.REGISTRY }}:latest -q)
+            docker rmi -f $(docker images  ${{ secrets.REGISTRY }}:latest -q)
+            docker login --username=${{ secrets.USERNAME }} --password ${{ secrets.PASSWORD }} registry.cn-shanghai.aliyuncs.com
+            docker pull ${{ secrets.REGISTRY }}:latest
+            docker run -d -p 80:8081 ${{ secrets.REGISTRY }}:latest
+            
+  
