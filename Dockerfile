@@ -1,5 +1,5 @@
-# 这里是引用的docker镜像, 我是maven项目所以是maven, 其他项目需要的镜像可以在dockerhub上找到
-FROM maven
+
+FROM maven:3.5-jdk-8-alpine
 
 ENV CODE /code
 ENV WORK /code/work
