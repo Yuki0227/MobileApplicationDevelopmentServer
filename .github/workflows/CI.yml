@@ -25,7 +25,7 @@ jobs:
       - name: Publish Docker
         uses: LucienShui/Publish-Docker-Github-Action@2.7.1
         with:
-          name: registry.cn-hongkong.aliyuncs.com/android-web/spring# docker image 的名字
+          name: registry.cn-hongkong.aliyuncs.com/android-web/spring # docker image 的名字
           username: 凯凡1423 # 用户名
           password: 001008ma # 密码
           registry: registry.cn-hongkong.aliyuncs.com # 阿里巴巴的 Docker Hub
