@@ -53,4 +53,3 @@ jobs:
             docker pull ${{ secrets.REGISTRY }}:latest
             docker run -d -p 80:8081 ${{ secrets.REGISTRY }}:latest
             
-  
