@@ -45,10 +45,10 @@ jobs:
           password: Ma001008
           port: 22
           script: |
-            docker stop $(docker ps --filter ancestor=${{ secrets.REGISIRY }} -q)
-            docker rm -f $(docker ps -a --filter ancestor=${{ secrets.REGISTRY }}:latest -q)
-            docker rmi -f $(docker images  ${{ secrets.REGISTRY }}:latest -q)
+            docker stop $(docker ps --filter ancestor=${{ secrets.REGISIRY }}:latest -q)
+            docker rm -f $(docker ps -a --filter ancestor=${{ secrets.REGISIRY }}:latest -q)
+            docker rmi -f $(docker images  ${{ secrets.REGISIRY }}:latest -q)
             docker login --username=${{ secrets.USERNAME }} --password ${{ secrets.PASSWORD }} registry.cn-hongkong.aliyuncs.com
-            docker pull ${{ secrets.REGISTRY }}:latest
-            docker run -d -p 80:8081 ${{ secrets.REGISTRY }}:latest
+            docker pull ${{ secrets.REGISIRY }}:latest
+            docker run -d -p 80:8081 ${{ secrets.REGISIRY }}:latest
             
