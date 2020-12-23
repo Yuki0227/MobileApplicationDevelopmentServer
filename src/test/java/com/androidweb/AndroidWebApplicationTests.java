@@ -19,10 +19,10 @@ class AndroidWebApplicationTests {
     @Test
     void save(){
         User user = new User();
-        user.setId(10);
-        user.setName("admin");
+        user.setId(11);
+        user.setName("admdmmd");
         user.setPassword("123123");
-        user.setContent(null);
+        user.setContent("任务:测试save请求接口");
         User user1 = userRepository.save(user);
         System.out.println(user1);
     }
