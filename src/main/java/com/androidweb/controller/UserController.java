@@ -36,5 +36,20 @@ public class UserController {
         }
     }
 
+    @GetMapping("/update")
+    public String update(@RequestBody User user){
+        User result = userRepository.save(user);
+        if(result == null){
+            return "error";
+        }else{
+            return "success";
+        }
+    }
+
+    @GetMapping("/deleteById/{id}")
+    public void deleteById(@PathVariable("id") Integer id){
+        userRepository.deleteById(id);
+    }
+
 
 }
