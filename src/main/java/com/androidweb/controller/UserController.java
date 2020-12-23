@@ -13,7 +13,6 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-    private User user;
 
 
     @GetMapping("/findAll")
