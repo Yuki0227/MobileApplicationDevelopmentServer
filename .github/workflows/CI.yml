@@ -1,4 +1,4 @@
-name: 持续部署
+name: JAVA Continuous Deployment
 
 on:
   push:
@@ -27,13 +27,13 @@ jobs:
       - name: Build with Maven
         run: mvn -B  package --file pom.xml -Dmaven.test.skip=true
 
-      - name: Publish Docker
+      - name: Publish to Docker Hub
         uses: LucienShui/Publish-Docker-Github-Action@2.7.1
         with:
-          name: registry.cn-hongkong.aliyuncs.com/android-web/spring # docker image 的名字
-          username: 凯凡1423 # 用户名
-          password: 001008ma # 密码
-          registry: registry.cn-hongkong.aliyuncs.com # 阿里巴巴的 Docker Hub
+          name: ${{ secrets.DOCKER_IMAGE_NAME }} # docker image 的名字
+          username: ${{ secrets.ALIYUN_USERNAME }} # 用户名
+          password: ${{ secrets.ALIYUN_PASSWORD }} # 密码
+          registry: ${{ secrets.DOCKER_IMAGE_REGISTRY }} # Docker Hub 地址
           dockerfile: Dockerfile # 指定 Dockerfile 的位置
           tag_names: true # 是否将 release 的 tag 作为 docker image 的 tag
   
@@ -43,19 +43,18 @@ jobs:
     timeout-minutes: 6
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
+      - name: Pull and Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 8.131.250.250
-          username: root
-          password: Ma001008
-          port: 22
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
-            docker stop $(docker ps --filter ancestor=registry.cn-hongkong.aliyuncs.com/android-web/spring:latest -q)
-            docker rm -f $(docker ps -a --filter ancestor=registry.cn-hongkong.aliyuncs.com/android-web/spring:latest -q)
-            docker rmi -f $(docker images  registry.cn-hongkong.aliyuncs.com/android-web/spring:latest -q)
-            docker login --username=凯凡1423 --password 001008ma registry.cn-hongkong.aliyuncs.com
-            docker pull registry.cn-hongkong.aliyuncs.com/android-web/spring:latest
-            docker run -d -p 80:8081 registry.cn-hongkong.aliyuncs.com/android-web/spring:latest
-            
+            docker stop $(docker ps --filter ancestor=${{ secrets.DOCKER_IMAGE_NAME }}:latest -q)
+            docker rm -f $(docker ps -a --filter ancestor=${{ secrets.DOCKER_IMAGE_NAME }}:latest -q)
+            docker rmi -f $(docker images  ${{ secrets.DOCKER_IMAGE_NAME }}:latest -q)
+            docker login --username=${{ secrets.ALIYUN_USERNAME }} --password ${{ secrets.ALIYUN_PASSWORD }} ${{ secrets.DOCKER_IMAGE_REGISTRY }}
+            docker pull ${{ secrets.DOCKER_IMAGE_NAME }}:latest
+            docker run -d -p ${{ secrets.DOCKER_PUBLIC_PORT }}:${{ secrets.DOCKER_APP_PORT }} ${{ secrets.DOCKER_IMAGE_NAME }}:latest
             
