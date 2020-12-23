@@ -1,13 +1,17 @@
-name: Docker Build And Push To Aliyun Hub
+name: 持续部署
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+    paths:
+      - src/**
+      - pom.xml
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
-    name: Build Spring Boot
+    name: 编译&构建Docker镜像
     runs-on: ubuntu-latest
     steps:
       - name: Git Checkout Code
@@ -34,7 +38,7 @@ jobs:
   
   pull-docker:
     needs: [build]
-    name: Pull Docker
+    name: 服务器启动Docker
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
