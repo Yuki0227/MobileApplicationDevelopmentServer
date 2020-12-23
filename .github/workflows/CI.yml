@@ -13,7 +13,6 @@ on:
 jobs:
   build:
     name: 编译&构建Docker镜像
-    timeout-minutes: 6
     runs-on: ubuntu-latest
     steps:
       - name: Git Checkout Code
@@ -41,7 +40,6 @@ jobs:
   pull-docker:
     needs: [build]
     name: 服务器启动Docker
-    timeout-minutes: 6
     runs-on: ubuntu-latest
     steps:
       - name: Pull and Deploy
