@@ -45,10 +45,11 @@ jobs:
           password: Ma001008
           port: 22
           script: |
-            docker stop $(docker ps --filter ancestor=${{ secrets.REGISIRY }}:latest -q)
-            docker rm -f $(docker ps -a --filter ancestor=${{ secrets.REGISIRY }}:latest -q)
-            docker rmi -f $(docker images  ${{ secrets.REGISIRY }}:latest -q)
-            docker login --username=${{ secrets.USERNAME }} --password ${{ secrets.PASSWORD }} registry.cn-hongkong.aliyuncs.com
-            docker pull ${{ secrets.REGISIRY }}:latest
-            docker run -d -p 80:8081 ${{ secrets.REGISIRY }}:latest
+            docker stop $(docker ps --filter ancestor=registry.cn-hongkong.aliyuncs.com/android-web/spring:latest -q)
+            docker rm -f $(docker ps -a --filter ancestor=registry.cn-hongkong.aliyuncs.com/android-web/spring:latest -q)
+            docker rmi -f $(docker images  registry.cn-hongkong.aliyuncs.com/android-web/spring:latest -q)
+            docker login --username=凯凡1423 --password 001008ma registry.cn-hongkong.aliyuncs.com
+            docker pull registry.cn-hongkong.aliyuncs.com/android-web/spring:latest
+            docker run -d -p 80:8081 registry.cn-hongkong.aliyuncs.com/android-web/spring:latest
+            
             
