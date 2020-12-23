@@ -13,10 +13,28 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+    private User user;
+
 
     @GetMapping("/findAll")
     public List<User> findAll(){
         return userRepository.findAll();
     }
+
+    @GetMapping("/findByName/{name}")
+    public User findByName(@PathVariable("name") String name){
+        return  userRepository.findByName(name);
+    }
+
+    @GetMapping("/save")
+    public String save(@RequestBody User user){
+        User result = userRepository.save(user);
+        if(result!=null){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+
 
 }
