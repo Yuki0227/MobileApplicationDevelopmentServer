@@ -13,7 +13,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-    private User user;
+
 
 
     @GetMapping("/findAll")
@@ -35,6 +35,23 @@ public class UserController {
             return "error";
         }
     }
+    @GetMapping("/update")
+    public String update(@RequestBody User user){
+        User result = userRepository.save(user);
+        if(result!=null){
+            return "success";
+        }else {
+            return "error";
+        }
+    }
+
+    @GetMapping("/deleteById/{id}")
+    public void deleteById(@PathVariable("id") Integer id){
+        userRepository.deleteById(id);
+    }
+
+
+
 
 
 }

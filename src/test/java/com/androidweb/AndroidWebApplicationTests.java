@@ -27,4 +27,20 @@ class AndroidWebApplicationTests {
         System.out.println(user1);
     }
 
+    @Test
+    void update(){
+        User user = new User();
+        user.setId(5);
+        user.setName("abc");
+        user.setPassword("123123");
+        //user.setContent(null);
+        User user1 = userRepository.save(user);
+        System.out.println(user1);
+    }
+
+    @Test
+    void delete(){
+        userRepository.deleteById(10);
+    }
+
 }
