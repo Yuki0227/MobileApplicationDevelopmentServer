@@ -22,34 +22,18 @@ public class UserController {
     }
 
     @GetMapping("/findByName")
-    public User findByName(@RequestParam(name = "name", required = false) String name){
+    public User findByName(@RequestParam(name = "name") String name){
         return  userRepository.findByName(name);
     }
 
-    @GetMapping("/save")
-    public String save(@RequestBody User user){
-        User result = userRepository.save(user);
-        if(result!=null){
-            return "success";
-        }else {
-            return "error";
-        }
-    }
-
     @GetMapping("/update")
-    public String update(@RequestBody User user){
-        User result = userRepository.save(user);
-        if(result == null){
-            return "error";
-        }else{
-            return "success";
-        }
+    public User update(@RequestBody User user){
+        return userRepository.save(user);
     }
 
-    @GetMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable("id") Integer id){
+    @GetMapping("/deleteById")
+    public void deleteById(@RequestParam(name = "id") Integer id){
         userRepository.deleteById(id);
     }
-
 
 }
