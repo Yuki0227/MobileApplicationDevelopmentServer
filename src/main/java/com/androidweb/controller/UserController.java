@@ -21,8 +21,8 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/findByName/{name}")
-    public User findByName(@PathVariable("name") String name){
+    @GetMapping("/findByName")
+    public User findByName(@RequestParam(name = "name", required = false) String name){
         return  userRepository.findByName(name);
     }
 
