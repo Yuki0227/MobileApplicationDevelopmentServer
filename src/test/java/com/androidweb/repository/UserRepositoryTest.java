@@ -23,7 +23,7 @@ class UserRepositoryTest {
     @Test
     void addUser(){
         User user = new User();
-        user.setName("Zhang");
+        user.setName("Zhangzzzzz");
         user.setPassword("123123");
         userRepository.save(user);
     }
