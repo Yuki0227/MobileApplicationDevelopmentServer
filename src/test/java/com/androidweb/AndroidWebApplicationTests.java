@@ -17,17 +17,6 @@ class AndroidWebApplicationTests {
     }
 
     @Test
-    void save(){
-        User user = new User();
-        user.setId(11);
-        user.setName("admdmmd");
-        user.setPassword("123123");
-        user.setContent("任务:测试save请求接口");
-        User user1 = userRepository.save(user);
-        System.out.println(user1);
-    }
-
-    @Test
     void update(){
         User user = new User();
         user.setId(5);
