@@ -43,10 +43,10 @@ class UserRepositoryTest {
         System.out.println("byId -- > " + byId);
     }
 
-    @Test
-    void findUserByName(){
-        User user = userRepository.findByName("Zhang");
-        System.out.println("user -- >" + user);
-    }
+//    @Test
+//    void findUserByName(){
+//        User user = userRepository.findByName("Zhang");
+//        System.out.println("user -- >" + user);
+//    }
 
 }
