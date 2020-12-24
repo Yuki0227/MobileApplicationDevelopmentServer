@@ -14,8 +14,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-
-    @GetMapping("/findAll")
+    @PostMapping("/findAll")
     public List<User> findAll(){
         return userRepository.findAll();
     }
@@ -25,7 +24,7 @@ public class UserController {
         return  userRepository.findByName(name);
     }
 
-    @GetMapping("/update")
+    @PostMapping("/update")
     public User update(@RequestBody User user){
         return userRepository.save(user);
     }
@@ -35,6 +34,7 @@ public class UserController {
     public void deleteById(@RequestParam(name = "id") Integer id){
         userRepository.deleteById(id);
     }
+
 
 
 
