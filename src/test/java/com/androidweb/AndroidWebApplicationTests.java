@@ -38,9 +38,9 @@ class AndroidWebApplicationTests {
         System.out.println(user1);
     }
 
-    @Test
-    void delete(){
-        userRepository.deleteById(15);
-    }
+//    @Test
+//    void delete(){
+//        userRepository.deleteById(15);
+//    }
 
 }
