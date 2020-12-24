@@ -25,7 +25,13 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public User add(@RequestBody User user){
+    public User add(
+            @RequestParam(name = "name") String name,
+            @RequestParam(name = "password") String password
+    ){
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
         return userRepository.save(user);
     }
 
