@@ -30,8 +30,9 @@ public class UserController {
         return userRepository.save(user);
     }
 
+
     @PostMapping("/deleteById")
-    public void deleteById(@RequestParam(name = "id") Integer id){
+    public void deleteById(@RequestParam(name = "id") Long id){
         userRepository.deleteById(id);
     }
 

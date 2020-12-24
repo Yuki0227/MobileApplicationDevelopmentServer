@@ -40,7 +40,7 @@ class AndroidWebApplicationTests {
 
     @Test
     void delete(){
-        userRepository.deleteById(10);
+        userRepository.deleteById(10L);
     }
 
 }
