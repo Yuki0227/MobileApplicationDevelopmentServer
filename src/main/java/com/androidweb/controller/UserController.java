@@ -14,14 +14,21 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/findAll")
-    public List<User> findAll(){
-        return userRepository.findAll();
-    }
 
-    @PostMapping("/findByName")
-    public User findByName(@RequestParam(name = "name") String name){
-        return  userRepository.findByName(name);
+//    用不到的方法
+//    @PostMapping("/findAll")
+//    public List<User> findAll(){
+//        return userRepository.findAll();
+//    }
+
+    @PostMapping("/find")
+    public User find(
+            @RequestParam(name = "name") String name,
+            @RequestParam(name = "password") String password
+    ){
+        User user = userRepository.findByNameAndPassword(name, password);
+        user.setPassword("");
+        return user;
     }
 
     @PostMapping("/add")
