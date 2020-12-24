@@ -24,6 +24,12 @@ public class UserController {
         return  userRepository.findByName(name);
     }
 
+    @PostMapping("/add")
+    public User add(@RequestBody User user){
+        return userRepository.save(user);
+    }
+
+
     @PostMapping("/update")
     public User update(@RequestBody User user){
         return userRepository.save(user);

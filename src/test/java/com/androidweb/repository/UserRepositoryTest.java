@@ -31,7 +31,7 @@ class UserRepositoryTest {
     @Test
     void updateUser(){
         User user = new User();
-        user.setId(3);
+        user.setId(28);
         user.setName("cch");
         user.setPassword("12341230");
         userRepository.save(user);
