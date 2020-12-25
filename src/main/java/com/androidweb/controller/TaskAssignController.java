@@ -39,10 +39,16 @@ public class TaskAssignController {
      * @return  返回创建者对应的所有任务
      */
     @PostMapping("/findAll")
-    public List<TaskAssign> findTaskAssignByCreatorId(@RequestParam Integer creatorId){
+    public List<TaskAssign> findTaskAssignByCreatorId(@RequestParam(name = "creatorId") Integer creatorId){
         return assignRepository.findAllByCreatorId(creatorId);
     }
 
+
+    @PostMapping("/delete")
+    public void deleteById(@RequestParam(name = "id") Integer id){
+        //System.out.println("id -- >" + id);
+        assignRepository.deleteById(id);
+    }
 
 
 }

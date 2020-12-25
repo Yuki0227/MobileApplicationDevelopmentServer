@@ -46,7 +46,7 @@ public class UserController {
     }
 
 
-    @PostMapping("/deleteById")
+    @PostMapping("/delete")
     public void deleteById(@RequestParam(name = "id") Integer id){
         userRepository.deleteById(id);
     }

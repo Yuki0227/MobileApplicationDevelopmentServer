@@ -22,4 +22,10 @@ public class TaskAssignRepositoryTest {
         taskAssignRepository.save(taskAssign);
     }
 
+    @Test
+    void delete(){
+        int id = 6;
+        taskAssignRepository.deleteById(id);
+    }
+
 }
