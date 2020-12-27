@@ -25,9 +25,6 @@ class AndroidWebApplicationTests {
     @Test
     void findAll(){ System.out.println(multipleChoiceRepository.findAll());
     }
-    @Test
-    void findAll1(){ System.out.println(taskAssignRepository.findAll());
-    }
 
     @Test
     void findById(){
