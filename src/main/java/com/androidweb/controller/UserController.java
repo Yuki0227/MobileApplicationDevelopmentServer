@@ -5,6 +5,8 @@ import com.androidweb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -12,11 +14,10 @@ public class UserController {
     private UserRepository userRepository;
 
 
-//    用不到的方法
-//    @PostMapping("/findAll")
-//    public List<User> findAll(){
-//        return userRepository.findAll();
-//    }
+    @PostMapping("/findAll")
+    public List<User> findAll(){
+        return userRepository.findAll();
+    }
 
     @PostMapping("/find")
     public User find(
