@@ -10,10 +10,10 @@ import javax.persistence.Id;
 @Data
 public class ProgrammingQuestion {
     @Id
-    private Integer id;
-    private String description;
+    private long id;
+    private String question;
     private String input;
     private String output;
-    private String sample_input;
-    private String sample_output;
+    private String sampleInput;
+    private String sampleOutput;
 }

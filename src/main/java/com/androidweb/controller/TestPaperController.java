@@ -1,9 +1,8 @@
 package com.androidweb.controller;
 
-import com.androidweb.entity.Question;
 import com.androidweb.entity.TestPaper;
-import com.androidweb.repository.JudgementQuestionRepository;
 import com.androidweb.repository.ChoiceQuestionRepository;
+import com.androidweb.repository.JudgementQuestionRepository;
 import com.androidweb.repository.ProgrammingQuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
