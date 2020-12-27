@@ -1,8 +1,7 @@
 package com.androidweb;
 
 import com.androidweb.entity.User;
-import com.androidweb.repository.MultipleChoiceRepository;
-import com.androidweb.repository.QuestionRepository;
+import com.androidweb.repository.ChoiceQuestionRepository;
 import com.androidweb.repository.TaskAssignRepository;
 import com.androidweb.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -16,19 +15,19 @@ class AndroidWebApplicationTests {
     private UserRepository userRepository;
 
     @Autowired
-    private MultipleChoiceRepository multipleChoiceRepository;
+    private ChoiceQuestionRepository choiceQuestionRepository;
 
     @Autowired
     private TaskAssignRepository taskAssignRepository;
 
 
     @Test
-    void findAll(){ System.out.println(multipleChoiceRepository.findAll());
+    void findAll(){ System.out.println(choiceQuestionRepository.findAll());
     }
 
     @Test
     void findById(){
-        System.out.println(multipleChoiceRepository.findById(1));
+        System.out.println(choiceQuestionRepository.findById(1));
     }
 
     @Test
