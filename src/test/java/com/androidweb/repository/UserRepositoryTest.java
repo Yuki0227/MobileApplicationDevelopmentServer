@@ -37,11 +37,11 @@ class UserRepositoryTest {
         userRepository.save(user);
     }
 
-    @Test
-    void findUserById(){
-        Optional<User> byId = userRepository.findById(1);
-        System.out.println("byId -- > " + byId);
-    }
+//    @Test
+//    void findUserById(){
+//        Optional<User> byId = userRepository.findById(1);
+//        System.out.println("byId -- > " + byId);
+//    }
 
 //    @Test
 //    void findUserByName(){

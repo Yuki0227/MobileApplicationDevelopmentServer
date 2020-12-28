@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -28,6 +29,17 @@ public class UserController {
         user.setPassword("");
         return user;
     }
+
+    @PostMapping("/findById")
+    public User findById(
+            @RequestParam(name = "id") Integer id
+    ){
+        Optional<User> users = userRepository.findById(id);
+        User user = users.get();
+        user.setPassword("");
+        return user;
+    }
+
 
 
     @PostMapping("/add")
