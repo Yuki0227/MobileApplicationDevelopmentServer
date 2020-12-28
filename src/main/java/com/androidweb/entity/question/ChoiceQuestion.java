@@ -20,4 +20,5 @@ public class ChoiceQuestion {
     private String source;
     private String answer;
     private String detail;
+
 }
