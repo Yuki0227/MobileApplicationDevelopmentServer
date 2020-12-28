@@ -18,6 +18,8 @@ public class TaskAssign {
     private String task;
     private Date taskCreateTime;
     private Date taskFinishTime;
+    //用于标记该任务是否完成,完成则为1,未完成则为0
+    private Integer status;
 
 
 }
