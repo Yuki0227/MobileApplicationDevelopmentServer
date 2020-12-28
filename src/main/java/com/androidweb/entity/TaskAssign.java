@@ -15,7 +15,10 @@ public class TaskAssign {
     private Integer creatorId;
     //被分配者用户ID
     private Integer assigneeId;
-    private String task;
+    //任务的标题
+    private String task_title;
+    //任务的具体内容
+    private String task_content;
     private Date taskCreateTime;
     private Date taskFinishTime;
     //用于标记该任务是否完成,完成则为1,未完成则为0
