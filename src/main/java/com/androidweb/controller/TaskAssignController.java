@@ -43,6 +43,18 @@ public class TaskAssignController {
         return assignRepository.findAllByCreatorId(creatorId);
     }
 
+    /**
+     * 根据被指派任务的人的id返回被指派人是他的所有任务
+     * @param assigneeId 被指派任务的人的id
+     * @return 返回被指派者的被指派的所有任务
+     */
+    @PostMapping("/findAllAssigned")
+    public List<TaskAssign> findTaskAssignedTask(@RequestParam(name = "assigneeId") Integer assigneeId){
+        return assignRepository.findTaskAssignedTask(assigneeId);
+    }
+
+
+
 
     @PostMapping("/delete")
     public void deleteById(@RequestParam(name = "id") Integer id){

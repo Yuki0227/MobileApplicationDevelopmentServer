@@ -15,7 +15,7 @@ public class TaskAssignRepositoryTest {
     @Test
     void add(){
         TaskAssign taskAssign = new TaskAssign();
-        taskAssign.setTask("任务计划:测试工作2");
+        taskAssign.setTaskTitle("任务计划:测试工作2");
         taskAssign.setCreatorId(2);
         Date createTime = new Date(System.currentTimeMillis());
         taskAssign.setTaskCreateTime(createTime);

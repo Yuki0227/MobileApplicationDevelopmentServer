@@ -12,10 +12,7 @@ public class JudgmentQuestion {
     @Id
     private Integer id;
     private String question;
-    private String choice1;
-    private String choice2;
-    private String answer;
+    private boolean answer;
     private String parse;
-    private String type;
 
 }
