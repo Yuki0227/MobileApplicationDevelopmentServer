@@ -1,6 +1,7 @@
 package com.androidweb;
 
 import com.androidweb.entity.User;
+import com.androidweb.repository.ArticleRepository;
 import com.androidweb.repository.ChoiceQuestionRepository;
 import com.androidweb.repository.TaskAssignRepository;
 import com.androidweb.repository.UserRepository;
@@ -20,6 +21,8 @@ class AndroidWebApplicationTests {
     @Autowired
     private TaskAssignRepository taskAssignRepository;
 
+    @Autowired
+    private ArticleRepository articleRepository;
 
     @Test
     void findAll(){ System.out.println(choiceQuestionRepository.findAll());
@@ -45,9 +48,9 @@ class AndroidWebApplicationTests {
         System.out.println(user1);
     }
 
-//    @Test
-//    void delete(){
-//        userRepository.deleteById(15);
-//    }
+    @Test
+    void article(){
+        articleRepository.findById(1L);
+    }
 
 }
