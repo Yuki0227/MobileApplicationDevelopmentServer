@@ -2,8 +2,12 @@ package com.androidweb.controller;
 
 import com.androidweb.entity.bbs.Article;
 import com.androidweb.entity.bbs.ArticleReview;
+import com.androidweb.entity.bbs.ArticleReviewView;
+import com.androidweb.entity.bbs.ArticleView;
 import com.androidweb.repository.ArticleRepository;
 import com.androidweb.repository.ArticleReviewRepository;
+import com.androidweb.repository.ArticleReviewViewRepository;
+import com.androidweb.repository.ArticleViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,15 +23,21 @@ public class ArticleController {
     @Autowired
     ArticleReviewRepository articleReviewRepository;
 
+    @Autowired
+    ArticleViewRepository articleViewRepository;
+
+    @Autowired
+    ArticleReviewViewRepository articleReviewViewRepository;
+
     @PostMapping("/getArticleById")
-    public Article getArticleById(@RequestParam(name = "articleId") Long id){
-        Optional<Article> articles = articleRepository.findById(id);
+    public ArticleView getArticleById(@RequestParam(name = "articleId") Long id) {
+        Optional<ArticleView> articles = articleViewRepository.findById(id);
         return articles.get();
     }
 
     @PostMapping("/getAllArticles")
-    public List<Article> getAllArticles(){
-        return articleRepository.findAll();
+    public List<ArticleView> getAllArticles() {
+        return articleViewRepository.findAll();
     }
 
     @PostMapping("/putArticle")
@@ -42,8 +52,8 @@ public class ArticleController {
 
 
     @PostMapping("/getReviews")
-    public List<ArticleReview> getReviews(@RequestParam(name = "articleId") Long articleId){
-        return articleReviewRepository.findByArticleId(articleId);
+    public List<ArticleReviewView> getReviews(@RequestParam(name = "articleId") Long articleId) {
+        return articleReviewViewRepository.findByArticleId(articleId);
     }
 
 }
