@@ -20,4 +20,7 @@ public interface TaskAssignRepository extends JpaRepository<TaskAssign,Integer> 
 
     @Query(value = "from TaskAssign where assigneeId = ?1")
     List<TaskAssign> findTaskAssignedTask(Integer assigneeId);
+
+    @Query(value = "from TaskAssign where creatorId = ?1 or assigneeId = ?2")
+    List<TaskAssign> findAllTask(Integer creatorId, Integer assigneeId);
 }
