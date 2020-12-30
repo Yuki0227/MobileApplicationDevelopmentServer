@@ -49,8 +49,6 @@
             <scope>test</scope>
         </dependency>
 
-
-<!--    数据库连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
